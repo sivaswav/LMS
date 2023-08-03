@@ -1,4 +1,4 @@
-package com.librarymanagementsystem;
+package com.librarymanagementsystem.books;
 
 public class Book {
     private String title,author,isbn,publication;
@@ -14,6 +14,7 @@ public class Book {
     public Book(String title, String author, String isbn){
         this(title,author,isbn,null);
     }
+    
 
     public String getTitle() {
         return title;
