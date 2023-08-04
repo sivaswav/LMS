@@ -11,12 +11,7 @@ public class Book {
         this.publication = publication;
     }
 
-    public Book(String title, String author, String isbn){
-        this(title,author,isbn,null);
-    }
-    
-
-    public String getTitle() {
+      public String getTitle() {
         return title;
     }
 

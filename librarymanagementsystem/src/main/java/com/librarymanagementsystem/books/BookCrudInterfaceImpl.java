@@ -1,5 +1,7 @@
 package com.librarymanagementsystem.books;
 
+import java.util.Map;
+
 public class BookCrudInterfaceImpl implements BookCrudInterface{
 
     @Override
@@ -15,7 +17,7 @@ public class BookCrudInterfaceImpl implements BookCrudInterface{
     }
 
     @Override
-    public Book getBook(String isbn) {
+    public Book getBook(Map<String,String> search) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getBook'");
     }

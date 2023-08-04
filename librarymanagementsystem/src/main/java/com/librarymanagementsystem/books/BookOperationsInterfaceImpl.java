@@ -1,23 +1,31 @@
 package com.librarymanagementsystem.books;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BookOperationsInterfaceImpl implements BookOperationsInterface {
+
+    private BookCrudInterface bookCrudInterface=new BookCrudInterfaceImpl() ; 
 
     @Override
     public Book searchBookByAuthor(String author) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'searchBookByAuthor'");
+        Map<String,String> search=new HashMap<>();
+        search.put("author", author);
+        return bookCrudInterface.getBook(search);
     }
 
     @Override
     public Book searchBookByTitle(String title) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'searchBookByTitle'");
+        Map<String,String> search=new HashMap<>();
+        search.put("title", title);
+        return bookCrudInterface.getBook(search);
     }
 
     @Override
     public Book searchBookByisbn(String isbn) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'searchBookByisbn'");
+        Map<String,String> search=new HashMap<>();
+        search.put("isbn", isbn);
+        return bookCrudInterface.getBook(search);
     }
     
 }
