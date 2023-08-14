@@ -5,9 +5,15 @@ import com.librarymanagementsystem.books.Book;
 public class BookReservation {
     private String bookingID,userID,contactNo,bookingDate,librarianID,dueDate;
     private Boolean isApproved;
-    private Book book;
+    private String isbn;
+    public String getIsbn() {
+        return isbn;
+    }
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
     public BookReservation(String bookingID, String userID, String contactNo, String bookingDate, String librarianID,
-            String dueDate, Boolean isApproved, Book book) {
+            String dueDate, Boolean isApproved, String isbn) {
         this.bookingID = bookingID;
         this.userID = userID;
         this.contactNo = contactNo;
@@ -15,7 +21,7 @@ public class BookReservation {
         this.librarianID = librarianID;
         this.dueDate = dueDate;
         this.isApproved = isApproved;
-        this.book = book;
+        this.isbn = isbn;
     }
     public String getBookingID() {
         return bookingID;
@@ -59,11 +65,6 @@ public class BookReservation {
     public void setIsApproved(Boolean isApproved) {
         this.isApproved = isApproved;
     }
-    public Book getBook() {
-        return book;
-    }
-    public void setBook(Book book) {
-        this.book = book;
-    }
+    
     
 }

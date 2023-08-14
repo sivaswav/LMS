@@ -1,6 +1,8 @@
 package com.librarymanagementsystem.bookreservation;
 
-public interface ReservationInterface {   
+import java.sql.SQLException;
 
-    public BookReservation bookRequest(BookReservation bookReservation);
+public interface ReservationInterface {   
+    public BookReservation reserveBook(BookReservation bookReservation) throws SQLException;
+     public BookReservation releaseReservation(BookReservation bookReservation) throws SQLException;
 }

@@ -9,7 +9,8 @@ public class BookCrudInterfaceImpl implements BookCrudInterface {
     private Connection con;
 
     @Override
-    public void addBook(Book book) throws SQLException {
+    public int addBook(Book book) throws SQLException {
+        int result=0;
         try {
             con = BookDao.getConnection();
             String sql = "insert into Books values(?,?,?,?)";
@@ -18,18 +19,18 @@ public class BookCrudInterfaceImpl implements BookCrudInterface {
             ps.setString(2, book.getTitle());
             ps.setString(3, book.getAuthor());
             ps.setString(4, book.getPublication());
-            ps.execute();
+            result=ps.executeUpdate();
             ps.close();
-            con.close();
+            
         } catch (Exception e) {
             con.rollback();
             System.out.println(getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         } finally {
             con.commit();
-            con.close();
+            
         }
-
+        return result;
     }
 
     @Override
@@ -42,14 +43,14 @@ public class BookCrudInterfaceImpl implements BookCrudInterface {
             ps.setString(1, isbn);
             ps.executeUpdate();
             ps.close();
-            con.close();
+            
         } catch (Exception e) {
             con.rollback();
             System.out.println(getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         } finally {
             con.commit();
-            con.close();
+            
         }
         return result;
     }
@@ -88,7 +89,7 @@ public class BookCrudInterfaceImpl implements BookCrudInterface {
             System.exit(0);
         } finally {
             con.commit();
-            con.close();
+            
         }
         return book;
         
@@ -105,14 +106,14 @@ public class BookCrudInterfaceImpl implements BookCrudInterface {
             ps.setString(3, book.getIsbn());
             ps.executeUpdate();
             ps.close();
-            con.close();
+            
         } catch (Exception e) {
             con.rollback();
             System.out.println(getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         } finally {
             con.commit();
-            con.close();
+            
         }
         return book;
         
